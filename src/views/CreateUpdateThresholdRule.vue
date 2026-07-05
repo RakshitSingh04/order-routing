@@ -197,8 +197,6 @@ function isFacilitySelected(facilityId: any) {
   return formData.value.areAllChannelsSelected || formData.value.selectedConfigFacilites?.includes(facilityId)
 }
 
-
-
 async function createThresholdRule() {
   if(!isRuleValid()) return;
 
