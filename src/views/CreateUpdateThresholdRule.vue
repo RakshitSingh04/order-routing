@@ -34,7 +34,13 @@
         <h1>{{ translate("Channels") }} <ion-text color="danger">*</ion-text></h1>
       </div>
 
-      <section>
+      <!-- <section>
+        <ion-item lines="none">
+          <ion-toggle v-model="formData.areAllChannelsSelected">{{ translate("Select all channels") }}</ion-toggle>
+        </ion-item>
+      </section> -->
+
+      <section v-if="configFacilities.length > 1">
         <ion-item lines="none">
           <ion-toggle v-model="formData.areAllChannelsSelected">{{ translate("Select all channels") }}</ion-toggle>
         </ion-item>
@@ -193,9 +199,15 @@ function toggleFacilitySelection(facilityId: any) {
   }
 }
 
+// function isFacilitySelected(facilityId: any) {
+//   return formData.value.selectedConfigFacilites?.includes(facilityId)
+// }
+
 function isFacilitySelected(facilityId: any) {
-  return formData.value.selectedConfigFacilites?.includes(facilityId)
+  return formData.value.areAllChannelsSelected || formData.value.selectedConfigFacilites?.includes(facilityId)
 }
+
+
 
 async function createThresholdRule() {
   if(!isRuleValid()) return;
