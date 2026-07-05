@@ -34,12 +34,6 @@
         <h1>{{ translate("Channels") }} <ion-text color="danger">*</ion-text></h1>
       </div>
 
-      <!-- <section>
-        <ion-item lines="none">
-          <ion-toggle v-model="formData.areAllChannelsSelected">{{ translate("Select all channels") }}</ion-toggle>
-        </ion-item>
-      </section> -->
-
       <section v-if="configFacilities.length > 1">
         <ion-item lines="none">
           <ion-toggle v-model="formData.areAllChannelsSelected">{{ translate("Select all channels") }}</ion-toggle>
@@ -198,10 +192,6 @@ function toggleFacilitySelection(facilityId: any) {
     formData.value.selectedConfigFacilites.push(facilityId)
   }
 }
-
-// function isFacilitySelected(facilityId: any) {
-//   return formData.value.selectedConfigFacilites?.includes(facilityId)
-// }
 
 function isFacilitySelected(facilityId: any) {
   return formData.value.areAllChannelsSelected || formData.value.selectedConfigFacilites?.includes(facilityId)
